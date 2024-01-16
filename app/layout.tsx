@@ -6,9 +6,9 @@ import Toast from './toast';
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Next.js App Router + NextAuth + Tailwind CSS',
+  title: 'Global Visa Management Services',
   description:
-    'A user admin dashboard configured with Next.js, Postgres, NextAuth, Tailwind CSS, TypeScript, ESLint, and Prettier.'
+    'A global visa management services platform to help people to immigrate and travel around the world.',
 };
 
 export default function RootLayout({

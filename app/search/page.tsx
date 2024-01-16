@@ -135,8 +135,22 @@ const countries = [
     },
 ];
 
+const categories = [
+    {
+        id: 'travel',
+        name: 'Travel',
+        icon: 'https://www.canadavisa.com/images/logo.png',
+    },
+    {
+        id: 'business',
+        name: 'Business',
+        icon: 'https://www.usavisa.com/images/logo.png',
+    },
+];
+
 export default function SearchPage() {
     const [countryFilter, setCountryFilter] = useState('');
+    const [categoryFilter, setCategoryFilter] = useState('');
 
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
@@ -153,7 +167,7 @@ export default function SearchPage() {
 
                     {countries.map((item) => (
                         
-                    <SearchSelectItem value={item.id}>
+                    <SearchSelectItem key={item.id} value={item.id}>
                         {item.name}
                     </SearchSelectItem>
 
@@ -161,14 +175,14 @@ export default function SearchPage() {
                 </SearchSelect>
 
                 <SearchSelect 
-                    value={countryFilter} 
-                    onValueChange={setCountryFilter}
-                    placeholder='Visa Type'
+                    value={categoryFilter} 
+                    onValueChange={setCategoryFilter}
+                    placeholder='Visa Category'
                     className='max-w-sm'>
                         
-                    {countries.map((item) => (
+                    {categories.map((item) => (
                         
-                    <SearchSelectItem value={item.id}>
+                    <SearchSelectItem key={item.id} value={item.id}>
                         {item.name}
                     </SearchSelectItem>
 
