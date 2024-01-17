@@ -2,6 +2,7 @@
 
 import { Card, Text, Title, Flex, Grid, Bold, Button, SearchSelect, SearchSelectItem } from '@tremor/react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const visas = [
     {
@@ -214,7 +215,10 @@ export default function SearchPage() {
                 alignItems="baseline"
             >
               <Button size='sm' variant='light'>More Info</Button>
-              <Button size='sm' variant='secondary' className="text-right">Get Started</Button>
+              <Button size='sm' variant='secondary' className="text-right">
+                <Link href="/applications/usa/h1b">Get Started
+                </Link>
+              </Button>
             </Flex>
           </Card>
         ))}
