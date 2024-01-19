@@ -1,6 +1,6 @@
 'use client';
 
-import { TextInput, Title, Flex, Button, Dialog, DialogPanel } from '@tremor/react';
+import { DatePicker, TextInput, Title, Flex, Button, Dialog, DialogPanel } from '@tremor/react';
 import { FormEvent, useState } from 'react'
 
 export default function Page() {
@@ -50,10 +50,14 @@ export default function Page() {
       >
         <Title className='mb-4'>H1B Visa Form</Title>
         <form className='w-1/2 space-y-5' onSubmit={onSubmit}>
-          <TextInput placeholder="input 1" type="text" name="name" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="input 2" type="text" name="name2" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="input 3" type="text" name="name3" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="input 4" type="text" name="name4" className='basis-1/2 placeholder-slate-50'/>
+          <TextInput placeholder="Applicant Name" type="text" name="applicantName" className='basis-1/2 placeholder-slate-50'/>
+          <TextInput placeholder="Employer Name" type="text" name="employerName" className='basis-1/2 placeholder-slate-50'/>
+          <TextInput placeholder="Job Title" type="text" name="jobTitle" className='basis-1/2 placeholder-slate-50'/>
+          <TextInput placeholder="Job Location" type="text" name="jobLocation" className='basis-1/2 placeholder-slate-50'/>
+          <TextInput placeholder="Prevailing Wage" type="text" name="prevailingWage" className='basis-1/2 placeholder-slate-50'/>
+          <DatePicker placeholder="Start Date" className='basis-1/2 placeholder-slate-50'/>
+          <DatePicker placeholder="End Date" className='basis-1/2 placeholder-slate-50'/>
+          
           <Button type="submit">Submit</Button>
         </form>
 
