@@ -1,12 +1,19 @@
 'use client';
 
-import { DatePicker, TextInput, Title, Flex, Button, Dialog, DialogPanel } from '@tremor/react';
+import { Title, Flex, Button, Dialog, DialogPanel, Select, SelectItem, Textarea } from '@tremor/react';
 import { FormEvent, useState } from 'react'
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  // Handle form submission
+  const [q1Option, setQ1Option] = useState<string>('')
+  const [q2Option, setQ2Option] = useState<string>('')
+  const [q3Option, setQ3Option] = useState<string>('')
+  const [q4Option, setQ4Option] = useState<string>('')
+  const [q5Option, setQ5Option] = useState<string>('')
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -48,15 +55,124 @@ export default function Page() {
           justifyContent='center'
           alignItems='start'
       >
-        <Title className='mb-4'>H1B Visa Form</Title>
+        
         <form className='w-1/2 space-y-5' onSubmit={onSubmit}>
-          <TextInput placeholder="Applicant Name" type="text" name="applicantName" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="Employer Name" type="text" name="employerName" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="Job Title" type="text" name="jobTitle" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="Job Location" type="text" name="jobLocation" className='basis-1/2 placeholder-slate-50'/>
-          <TextInput placeholder="Prevailing Wage" type="text" name="prevailingWage" className='basis-1/2 placeholder-slate-50'/>
-          <DatePicker placeholder="Start Date" className='basis-1/2 placeholder-slate-50'/>
-          <DatePicker placeholder="End Date" className='basis-1/2 placeholder-slate-50'/>
+        <Title className='mb-4'>H1B Visa Form</Title>
+          
+
+          {/* Question 1 / Radio */}
+          <div className='block'>
+            <label className=''>
+              Does the visa applicant have a a valid U.S. or Canadian visa?
+            </label>
+            <p className='text-slate-400 text-sm pb-2'>If yes, then you will need to upload a copy of the valid visa at a later visa application stage.</p>
+            <div className="flex items-center mb-4">
+              <input id="q1-yes" type="radio" value="yes" checked={q1Option === "yes"} onChange={(e) => setQ1Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q1-yes" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+            </div>
+            <div className="flex items-center">
+              <input id="q1-no" type="radio" value="no" checked={q1Option === "no"} onChange={(e) => setQ1Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q1-no" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+            </div>
+          </div>
+
+          {/* Question 2 / Radio */}
+          <div className='block'>
+            <label className=''>
+              Does the visa applicant have at least $3,000 CAD?*
+            </label>
+            <p className='text-slate-400 text-sm pb-2'>This can include money being loaned to the visa applicant. You will need to provide proof of meeting this requirement by uploading a bank statement at a later stage of the application process. If applying as a family then the proof of funds will be done for the family as a whole.</p>
+            <div className="flex items-center mb-4">
+              <input id="q2-yes" type="radio" value="yes" checked={q2Option === "yes"} onChange={(e) => setQ2Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q2-yes" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+            </div>
+            <div className="flex items-center">
+              <input id="q2-no" type="radio" value="no" checked={q2Option === "no"} onChange={(e) => setQ2Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q2-no" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+            </div>
+          </div>
+
+          {/* Question 3 / Radio */}
+          <div className='block'>
+            <label className=''>
+              Does the visa applicant have a valid passport or travel document?
+            </label>
+            <p className='text-slate-400 text-sm pb-2'>You will need to upload a valid passport or travel document at a later stage in the application process.</p>
+            <div className="flex items-center mb-4">
+              <input id="q3-yes" type="radio" value="yes" checked={q3Option === "yes"} onChange={(e) => setQ3Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q3-yes" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+            </div>
+            <div className="flex items-center">
+              <input id="q3-no" type="radio" value="no" checked={q3Option === "no"} onChange={(e) => setQ3Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q3-no" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+            </div>
+          </div>
+
+          {/* Question 4 / Radio */}
+          <div className='block'>
+            <label className=''>
+              Has the visa applicant travelled to any foreign countries in the last 10 years?
+            </label>
+            <div className="flex items-center mb-4">
+              <input id="q4-yes" type="radio" value="yes" checked={q4Option === "yes"} onChange={(e) => setQ4Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q4-yes" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+            </div>
+            <div className="flex items-center">
+              <input id="q4-no" type="radio" value="no" checked={q4Option === "no"} onChange={(e) => setQ4Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q4-no" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+            </div>
+          </div>
+
+          {/* Question 5 / Radio */}
+          <div className='block'>
+            <label className=''>
+              Have you already planned your trip to Canada?
+            </label>
+            <div className="flex items-center mb-4">
+              <input id="q5-yes" type="radio" value="yes" checked={q5Option === "yes"} onChange={(e) => setQ5Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q5-yes" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+            </div>
+            <div className="flex items-center">
+              <input id="q5-no" type="radio" value="no" checked={q5Option === "no"} onChange={(e) => setQ5Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+              <label htmlFor="q5-no" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+            </div>
+          </div>
+
+          {/* Question 7 / Select */}
+          <div className='block'>
+            <label>
+              When would you like to travel?
+            </label>
+            <Select >
+              <SelectItem value="As soon as possible">As soon as posslbe</SelectItem>
+              <SelectItem value="Within the next 3 months">Within the next 3 months</SelectItem>
+              <SelectItem value="Within the next 6 months">Within the next 6 months</SelectItem>
+              <SelectItem value="Within the next 12 months">Within the next 12 months</SelectItem>
+              <SelectItem value="More than 12 months">More than 12 months</SelectItem>
+            </Select>
+          </div>
+
+          {/* Question 8 / Select */}
+          <div className='block'>
+            <label>
+              What is your reason for traveling to Canada?
+            </label>
+            <Select >
+              <SelectItem value="Less than 6 months">Visiting friends or family</SelectItem>
+              <SelectItem value="6 months">Business meeting</SelectItem>
+              <SelectItem value="12 months">Tourism</SelectItem>
+              <SelectItem value="More than 12 months">Other</SelectItem>
+            </Select>
+          </div>
+
+          {/* Question 9 / TextArea */}
+          <div className='block'>
+            <label>
+              Anything else you'd like to share with us?
+            </label>
+            <Textarea />
+          </div>
+
           
           <Button type="submit">Submit</Button>
         </form>

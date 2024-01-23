@@ -15,6 +15,10 @@
     "jsx": "preserve",
     "incremental": true,
     "types": ["jest"],
+    "baseUrl": ".", // This must be specified if "paths" is.
+    "paths": {
+      "app/*": ["app/*"] // Matches any module starting with "app/"
+    },
     "plugins": [
       {
         "name": "next"

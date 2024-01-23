@@ -10,9 +10,9 @@ import Image from 'next/image';
 const navigation = [
   { name: 'Search', href: '/search' },
   { name: 'Applications', href: '/applications' },
-  { name: 'Team', href: '/' },
   { name: 'Tracking', href: '/tracking' },
-  { name: 'Budget', href: '/playground' }
+  { name: 'Budget', href: '/budget' }, 
+  { name: 'Resources', href: '/resources' }
 ];
 
 function classNames(...classes: string[]) {
