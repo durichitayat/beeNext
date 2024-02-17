@@ -63,7 +63,7 @@ export default function Page() {
           {/* Question 1 / Radio */}
           <div className='block'>
             <label className=''>
-              Does the visa applicant have a a valid U.S. or Canadian visa?
+              {"Does the visa applicant have a a valid U.S. or Canadian visa?"}
             </label>
             <p className='text-slate-400 text-sm pb-2'>If yes, then you will need to upload a copy of the valid visa at a later visa application stage.</p>
             <div className="flex items-center mb-4">
@@ -79,7 +79,7 @@ export default function Page() {
           {/* Question 2 / Radio */}
           <div className='block'>
             <label className=''>
-              Does the visa applicant have at least $3,000 CAD?*
+              {"Does the visa applicant have at least $3,000 CAD?*"}
             </label>
             <p className='text-slate-400 text-sm pb-2'>This can include money being loaned to the visa applicant. You will need to provide proof of meeting this requirement by uploading a bank statement at a later stage of the application process. If applying as a family then the proof of funds will be done for the family as a whole.</p>
             <div className="flex items-center mb-4">
@@ -95,7 +95,7 @@ export default function Page() {
           {/* Question 3 / Radio */}
           <div className='block'>
             <label className=''>
-              Does the visa applicant have a valid passport or travel document?
+              {"Does the visa applicant have a valid passport or travel document?"}
             </label>
             <p className='text-slate-400 text-sm pb-2'>You will need to upload a valid passport or travel document at a later stage in the application process.</p>
             <div className="flex items-center mb-4">
@@ -111,7 +111,7 @@ export default function Page() {
           {/* Question 4 / Radio */}
           <div className='block'>
             <label className=''>
-              Has the visa applicant travelled to any foreign countries in the last 10 years?
+              {"Has the visa applicant travelled to any foreign countries in the last 10 years?"}
             </label>
             <div className="flex items-center mb-4">
               <input id="q4-yes" type="radio" value="yes" checked={q4Option === "yes"} onChange={(e) => setQ4Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
@@ -126,7 +126,7 @@ export default function Page() {
           {/* Question 5 / Radio */}
           <div className='block'>
             <label className=''>
-              Have you already planned your trip to Canada?
+              {"Have you already planned your trip to Canada?"}
             </label>
             <div className="flex items-center mb-4">
               <input id="q5-yes" type="radio" value="yes" checked={q5Option === "yes"} onChange={(e) => setQ5Option(e.target.value)}  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
@@ -141,7 +141,7 @@ export default function Page() {
           {/* Question 7 / Select */}
           <div className='block'>
             <label>
-              When would you like to travel?
+              {"When would you like to travel?"}
             </label>
             <Select >
               <SelectItem value="As soon as possible">As soon as posslbe</SelectItem>
@@ -155,7 +155,7 @@ export default function Page() {
           {/* Question 8 / Select */}
           <div className='block'>
             <label>
-              What is your reason for traveling to Canada?
+              {"What is your reason for traveling to Canada?"}
             </label>
             <Select >
               <SelectItem value="Less than 6 months">Visiting friends or family</SelectItem>
@@ -168,7 +168,7 @@ export default function Page() {
           {/* Question 9 / TextArea */}
           <div className='block'>
             <label>
-              Anything else you'd like to share with us?
+              {"Anything else you would like to share with us?"}
             </label>
             <Textarea />
           </div>
@@ -181,8 +181,7 @@ export default function Page() {
         <Dialog open={isOpen} onClose={(val) => setIsOpen(val)} static={true}>
           <DialogPanel>
             <Title className="mb-3">Application Saved Successfully</Title>
-            Your application has been created successfully. 
-            An advisor is reviewing your application and will contact you shortly.
+            {"Your application has been created successfully. An advisor is reviewing your application and will contact you shortly."}
             <div className="mt-3">
               <Button variant="light" onClick={() => setIsOpen(false)}>
                 Got it!
